@@ -53,19 +53,16 @@ For subaccounts:
     - You can buy `<amount> <crypto>` or `<amount> EUR <crypto>`. Examples: 
         - I want to buy 0.01 ETH ➙ `npm run buy 0.01 - ETH [subaccount-id]`.
         - I want to buy 5 EUR in ETH ➙ `npm run buy 5 EUR ETH [subaccount-id]`.
-    - Response example: `{ id: transaction-id }`. Once you have successfully completed the purchase, you will be able to check your balances in your pockets or retrieve `transaction-id` details executing `npm run read-tx <tx-id> [subaccount-id]`.
 
 ### Swap crypto
 - To **swap crypto for another crypto**, execute `npm run swap <amount> <crypto-origin> <crypto-destination> [subaccount-id]`. If `subaccount-id` is empty, an attempt will be made to swap `crypto-origin ➙ crypto-destination` for the main account. If you want to know all the available `crypto`, you can execute `npm run list-currencies`.
     - Examples: 
         - I want to swap 0.01 ETH to BTC ➙ `npm run swap 0.01 ETH BTC [subaccount-id]`.
-    - Response example: `{ id: transaction-id }`. Once you have successfully completed the swap, you will be able to check your balances in your pockets or retrieve `transaction-id` details executing `npm run read-tx <tx-id> [subaccount-id]`.
         
 ### Sell crypto
 - To **sell crypto**, execute `npm run sell <amount> <crypto> [subaccount-id]`. If `subaccount-id` is empty, an attempt will be made to sell crypto for the main account.
     - Examples: 
         - I want to sell 0.01 ETH ➙ `npm run sell 0.01 ETH [subaccount-id]`.
-    - Response example: `{ id: transaction-id }`. Once you have successfully completed the sell operation, you will be able to check your balances in your pockets or retrieve `transaction-id` details executing `npm run read-tx <tx-id> [subaccount-id]`.
 
 ### 2FA
 > If you want to configure 2FA in main account you MUST use Bit2Me UI.
@@ -80,11 +77,9 @@ For subaccounts:
 
 ### Withdraw crypto
 - To **withdraw crypto**, execute `npm run wd-crypto <amount> <crypto> <network> <address> <TOTP> [subaccount-id]`. If `subaccount-id` is empty, withdraw operation will be executed in main account.
-    - Response example: `{ id: transaction-id }`. Once you have successfuly completed the withdrawal operation, you'll be able to see the substraction in your wallet or retrieve `transaction-id` details executing `npm run read-tx <tx-id> [subaccount-id]`.
 
 ### Withdraw fiat
 - To **withdraw fiat to a bank account**, execute `npm run wd-fiat <amount> <TOTP> [subaccount-id]`. Due to console writing lack of security, you need to change `body` in `./withdrawFiat.js`. If `subaccount-id` is empty, fiat withdraw operation will be executed for main account.
-    - Response example: `{ id: transaction-id }`. Once you have successfuly completed the fiat withdrawal operation, you'll be able to see the substraction in your wallet or retrieve `transaction-id` details executing `npm run read-tx <tx-id> [subaccount-id]`.
 
 ### Social-Pay (Soon)
 

@@ -7,7 +7,8 @@ const axios  = require('axios');
 // Bit2me logic
 const { getAuthHeaders } = require('./bit2me_logic/utils');
 const { getPocket } = require('./utils/getPocket');
-const { getNetworks } = require('./utils/getNetworks')
+const { getNetworks } = require('./utils/getNetworks');
+const { getTx } = require('./utils/getTx');
 
 const PROFORMA_PATH = process.env.END_W_PROFORMA;
 const EXECUTE_PROFORMA_PATH = process.env.END_WALLET_TX;
@@ -80,7 +81,9 @@ const withdrawCrypto = async () => {
                 config
             );
 
-            console.log(response.data)
+            if (response.data) {
+                console.log(await getTx(response.data.id, subaccount))
+            }
         }
     }catch(e) {
         console.error(e.response.data)

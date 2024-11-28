@@ -7,6 +7,7 @@ const axios  = require('axios');
 // Bit2me logic
 const { getAuthHeaders } = require('./bit2me_logic/utils');
 const { getPocket } = require('./utils/getPocket');
+const { getTx } = require('./utils/getTx');
 
 const PROFORMA_PATH = process.env.END_W_PROFORMA;
 const EXECUTE_PROFORMA_PATH = process.env.END_WALLET_TX;
@@ -72,7 +73,9 @@ const swap = async () => {
                 getAuthHeaders(EXECUTE_PROFORMA_PATH, SUBACCOUNT, execBody)
             );
 
-            console.log(response.data)
+            if (response.data) {
+                console.log(await getTx(response.data.id, SUBACCOUNT))
+            }
         }
     }catch(e) {
         console.error(e.response.data)
