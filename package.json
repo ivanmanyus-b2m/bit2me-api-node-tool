@@ -25,7 +25,8 @@
     "swap": "node --env-file .env swap.js",
     "sell": "node --env-file .env sell.js",
     "wd-crypto": "node --env-file .env withdrawCrypto.js",
-    "wd-fiat": "node --env-file .env withdrawEUR.js"
+    "wd-fiat": "node --env-file .env withdrawEUR.js",
+    "pay": "node --env-file .env socialPay.js"
   },
   "author": "Bit2Me",
   "license": "Apache-2.0",

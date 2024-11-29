@@ -10,9 +10,10 @@ const { getAuthHeaders } = require('./utils');
 const EMBED = process.env.END_EMBED;
 const AUTH = process.env.END_AUTH;
 
-const getEmbedToken = async (subaccount) => {
+//TODO: Check wss getAuthHeaders logic
+const getEmbedToken = async (subaccount, wss = false) => {
     const body = (subaccount) ? { 'userId': subaccount } : {};
-    const config = getAuthHeaders(EMBED, body);
+    const config = (wss) ? getAuthHeaders(EMBED, subaccount, body) : getAuthHeaders(EMBED, "", body);
 
     const response = await axios.post(
         `${process.env.SERVER}${EMBED}`,
@@ -23,13 +24,13 @@ const getEmbedToken = async (subaccount) => {
     return (response.status !== 200) ? null : response.data.accessToken.token;
 }
 
-const getAuthToken = async (accessToken) => {
+const getAuthToken = async (accessToken, wss = false) => {
     if(!accessToken) return null;
 
     const body = {
         "accessToken" : accessToken
     }
-    const config = getAuthHeaders(AUTH, body);
+    const config = (wss) ? getAuthHeaders(AUTH, subaccount, body) : getAuthHeaders(AUTH, "", body);
 
     const response = await axios.post(
         `${process.env.SERVER}${AUTH}`,

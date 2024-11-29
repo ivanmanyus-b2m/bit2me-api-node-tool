@@ -10,10 +10,14 @@ const openWss = async (action = "listen") => {
     });
     
     ws.addEventListener ('open', async () => {
-        const embed = await getEmbedToken();
-        if(!embed) return ;
-        ws.send (JSON.stringify ({ type: 'authenticate', payload: { token: await getAuthToken(embed) }}));
-    
+        try{
+            const embed = await getEmbedToken();
+            if(!embed) return ;
+            ws.send (JSON.stringify ({ type: 'authenticate', payload: { token: await getAuthToken(embed) }}));
+        }
+        catch(e){
+            console.error(e.response.data);
+        }
     });
     
     ws.addEventListener ('message', message => {
