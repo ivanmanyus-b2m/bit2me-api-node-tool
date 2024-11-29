@@ -46,7 +46,7 @@ For subaccounts:
 
 ### Get transaction information
 - To **get a transaction**, execute `npm run read-tx <tx-id> [subaccount-id]`. If `subaccount-id` is empty, `tx-id` will be searched in main account transaction list.
-- To **get your transaction list**, execute `npm run read-tx "" [subaccount-id]`. If `subaccount-id` is empty, will be returned transaction list of main account.
+- To **get your transaction list**, execute `npm run list-tx [subaccount-id]`. If `subaccount-id` is empty, will be returned the transaction list of main account.
 
 ### Buy crypto
 - To **buy crypto**, execute `npm run buy <amount> < - | EUR > <crypto> [subaccount-id]`. If `subaccount-id` is empty, an attempt will be made to buy for the main account. If you want to know all the available `crypto`, you can execute `npm run list-currencies`.

@@ -19,6 +19,7 @@
     "deposit-eur": "node --env-file .env depositEUR.js",
     "deposit-crypto": "node --env-file .env depositCrypto.js",
     "read-tx": "node --env-file .env getTransaction.js",
+    "list-tx": "node --env-file .env listTransactions.js",
     "list-currencies": "node --env-file .env listCurrencies.js",
     "buy": "node --env-file .env buy.js",
     "swap": "node --env-file .env swap.js",

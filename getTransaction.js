@@ -1,6 +1,6 @@
 /**
  * @author Bit2Me
- * @dev Get transactions list or an specific transaction in Bit2Me
+ * @dev Get an specific transaction in Bit2Me
  */
 
 // Bit2me logic
@@ -11,7 +11,7 @@ const args = process.argv.slice(2);
 const SUBACCOUNT = args[1]
 
 const getTransaction= async () => {
-    console.log(await getTx(args[0], SUBACCOUNT))
+    (SUBACCOUNT) ? console.log(await getTx(args[0], SUBACCOUNT)) : console.log(await getTx(args[0]))
 }
 
 getTransaction()
