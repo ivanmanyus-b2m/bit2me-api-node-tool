@@ -73,7 +73,7 @@ For subaccounts:
     - `{ secret: secret-id }`
 
 - To **finish TOTP configuration**, execute `npm use set-2fa <subaccount-id> <TOTP>`.
-    - Successful response example: `{ result: true | false }`
+    - Response example: `{ result: true | false }`
 
 ### Withdraw crypto
 - To **withdraw crypto**, execute `npm run wd-crypto <amount> <crypto> <network> <address> <TOTP> [subaccount-id]`. If `subaccount-id` is empty, withdraw operation will be executed in main account.
