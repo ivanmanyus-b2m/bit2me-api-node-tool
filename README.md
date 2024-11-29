@@ -82,7 +82,7 @@ For subaccounts:
 - To **withdraw fiat to a bank account**, execute `npm run wd-fiat <amount> <TOTP> [subaccount-id]`. Due to console writing lack of security, you need to change `body` in `./withdrawFiat.js`. If `subaccount-id` is empty, fiat withdraw operation will be executed for main account.
 
 ### Social-Pay
-- To **make a transfer** between accounts, execute `npm run pay <amount> <crypto> <alice> <bob> <alice-TOTP>`. `alice` and `bob` are accounts, you **MUST** fill this params with an **uuid**. In order to make a social-pay, `bob` **MUST** have an alias already set. If not, please execute `npm run set-alias <alias> [bob]`.
+- To **make a transfer** between accounts, execute `npm run pay <amount> <crypto> <alice> <bob> <alice-TOTP>`. `alice` and `bob` are accounts, you **MUST** fill this params with an **uuid**. In order to make a social-pay, `bob` **MUST** have an alias already set. If not, please execute `npm run set-alias <alias> <bob>`.
     - Example: Alice wants to transfer Bob 0.01 ETH ➙ `npm run pay 0.01 ETH 9fb38ddd-3b09-4823-9a2e-668e9bc96964 4512ec8e-f269-4b62-aeea-c64041865b83 451450`.
 
 ---
