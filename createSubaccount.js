@@ -25,7 +25,7 @@ const createSubaccount = async () => {
     const response = await axios.post(
       `${process.env.SERVER}${PATH}`,
       body,
-      getAuthHeaders(PATH, body)
+      getAuthHeaders(PATH, "", body)
     );
 
     console.log(response.data);

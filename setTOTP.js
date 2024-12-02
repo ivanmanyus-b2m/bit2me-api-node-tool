@@ -25,7 +25,7 @@ const setTOTP = async () => {
     const response = await axios.put(
       `${process.env.SERVER}${PATH}`,
       body,
-      getAuthHeaders(PATH, body)
+      getAuthHeaders(PATH, "", body)
     );
 
     console.log(response.data);

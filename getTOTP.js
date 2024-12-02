@@ -15,14 +15,15 @@ if(args.length < 1){
     process.exit(1);
 }
 
-const body = { 'subaccountUserId': args[0] }
+const subaccount = args[0];
+const body = { 'subaccountUserId': subaccount }
 
 const getTOTP = async () => {
   try {
     const response = await axios.post(
       `${process.env.SERVER}${PATH}`,
       body,
-      getAuthHeaders(PATH, body)
+      getAuthHeaders(PATH, "", body)
     );
 
     console.log(response.data);
