@@ -6,8 +6,9 @@
 > **TIP**: `<>` is for required data, `[]` is for optional data.
 
 ## How to use this tool
-1. Change `API_KEY` and `SECRET` in `.env` file with yours.
-2. Execute `npm i`.
+1. Run `cp .env.example .env` in your terminal.
+2. Change `API_KEY` and `SECRET` in `.env` file with yours.
+3. Execute `npm i`.
 
 ### Currency and market information
 - To **get all available currencies** in Bit2Me, with available actions, its networks and withdrawal fees, execute `npm run list-currencies`. This script retrieves all currencies information and may take some time.
