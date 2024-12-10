@@ -27,7 +27,7 @@ if(args.length < 5){ usage(); }
 const amount    = args[0]
 const crypto    = args[1]
 let   alice     = args[2]
-const bob       = args[3]
+let   bob       = args[3]
 const totp      = args[4]
 
 const socialPay = async () => {
@@ -36,6 +36,8 @@ const socialPay = async () => {
     if(!validate(alice) || !validate(bob)) usage();
 
     alice = (await isSubaccount(alice)) ? alice : "";
+    bob = (await isSubaccount(bob)) ? bob : "";
+
     const pockets = await getPocket(crypto, alice);
 
     if(pockets?.length == 0){
@@ -57,7 +59,7 @@ const socialPay = async () => {
         "pocketId": pocket,
         "type": "alias",
         "alias": bobAlias,
-        "note": `Social pay between ${(alice == "") ? "main" : alice} and ${bob}`
+        "note": `Social pay between ${(alice == "") ? "main" : alice} and ${(bob == "") ? "main" : bob}`
     }
 
     try{
