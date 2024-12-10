@@ -86,6 +86,25 @@ For subaccounts:
 - To **make a transfer** between accounts, execute `npm run pay <amount> <crypto> <alice> <bob> <alice-TOTP>`. `alice` and `bob` are accounts, you **MUST** fill this params with an **uuid**. In order to make a social-pay, `bob` **MUST** have an alias already set. If not, please execute `npm run set-alias <alias> <bob>`.
     - Example: Alice wants to transfer Bob 0.01 ETH ➙ `npm run pay 0.01 ETH 9fb38ddd-3b09-4823-9a2e-668e9bc96964 4512ec8e-f269-4b62-aeea-c64041865b83 451450`.
 
+### Extra section
+
+#### Authentication by JWT
+The authentication between Bit2Me and you can also work with the [RFC-7519 standard](https://datatracker.ietf.org/doc/html/rfc7519), popularly known as **JSON Web Token (JWT)**. This means, that if you do not want the actions of your subaccounts to depend exclusively on a backend, you can have them authenticated with a JWT. The management of this token is up to you.
+
+- To get a valid JWT, execute `npm run jwt [subaccount-id]`. If `subaccount-id` is empty, a JWT associated with your main account will be returned.
+
+##### Recommended use of the JWT
+1. A backend retrieves a valid JWT for an account.
+2. Store this JWT in FE (using localStorage or similar).
+3. You can make requests without needing the API Key + Secret auth method, using this header directly from the client:
+```JS
+headers: {
+    Authorization: `Bearer ${jwt}`
+}
+```
+
+**As long as the [`exp`](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4) of the token is `<=` than `now`, it will work.**
+
 ---
 
 _Happy hacking!_
