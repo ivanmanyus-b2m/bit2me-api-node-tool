@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "NodeJS tool to help use and understand the Bit2Me Broker API",
   "scripts": {
-    "market-quote": "node --env-file .env marketQuotes.js",
+    "market-quotes": "node --env-file .env marketQuotes.js",
+    "market-data": "node --env-file .env marketData.js",
     "create-subaccount": "node --env-file .env createSubaccount.js",
     "set-alias": "node --env-file .env setAlias.js",
     "list-subaccounts": "node --env-file .env listSubaccounts.js",

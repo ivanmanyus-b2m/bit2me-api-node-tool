@@ -1,4 +1,7 @@
 # Bit2Me API Tool (BETA)
+
+![Node.js Compatibility](https://img.shields.io/badge/Node.js-%3E%3D%2021.7.3-brightgreen)
+
 > **NOTE**: For this quickstart you MUST use NodeJS version > 21.7.3. If you use a previous version, you MUST install dotenv & crypto@1.0.1 (this lib is deprecated and built-in. Recommend: update node version).
 
 > **DISCLAIMER**: This guide is for using Bit2Me Broker, **NOT** Bit2Me PRO. For a _how to use_ of Bit2Me PRO, please check [this documentation](https://api.bit2me.com/trading-spot-rest) and [this repository](https://github.com/bit2me-devs/trading-spot-samples).
@@ -13,7 +16,8 @@
 ### Currency and market information
 - To **get all available currencies** in Bit2Me, with available actions, its networks and withdrawal fees, execute `npm run list-currencies`. This script retrieves all currencies information and may take some time.
     - We strongly recommend that you store the output in a file: `npm run --silent list-currencies > currencies.json`.
-- To **get information and currency quotes**, execute `npm run market-quote [currency]`. If `currency` is empty, will return market currencies quotes in EUR. If you want to use USD instead, change line 11 in `./marketQuotes.js`.
+- To **get currencies quotes**, execute `npm run market-quotes [currency]`. If `currency` is empty, will return market currencies quotes in EUR.
+- To **get market information of a currency**, execute `npm run market-data <currency>`.
 
 ### Subaccount management
 - To **create a subaccount**:

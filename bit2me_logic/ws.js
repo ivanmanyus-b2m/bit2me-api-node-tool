@@ -28,7 +28,8 @@ const openWss = async (action = "listen") => {
             ws.close();
         }
         //! Uncomment the following line for better debugging of the wss
-        // console.log (`websocket message: type: ${msg.type}, id: ${msg.payload.id}, time: ${msg.payload.time}`); 
+        // console.log (`websocket message: type: ${msg.type}, id: ${msg.id}, time: ${msg.time}`);
+        // console.log (msg.payload)
     });
     
     ws.addEventListener ('close', evt => {

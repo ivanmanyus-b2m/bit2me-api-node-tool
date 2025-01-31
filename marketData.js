@@ -1,18 +1,21 @@
 /**
  * @author Bit2Me
- * @dev List all cryptocurrencies Bit2Me quotes in the selected currency
+ * @dev Get market data of one currency in Bit2Me
  */
 const axios  = require('axios');
 
-const PATH = process.env.END_QUOTES;
+const PATH = process.env.END_MARKET_DATA;
 const args = process.argv.slice(2);
+if(args.length < 1){
+    console.error("Usage: npm run market-data <currency>")
+    process.exit(1);
+}
 
-const DEFAULT = "EUR"
-const currency = (args[0]) ? args[0] : DEFAULT;
+const currency = args[0];
 
 const marketQuotes = async () => {
     try {
-        const response = await axios.get(`${process.env.SERVER}${PATH}?currency=${currency}`,);
+        const response = await axios.get(`${process.env.SERVER}${PATH}${currency}`,);
         console.log(response.data);
     }
     catch(e) {
