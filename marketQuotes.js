@@ -12,7 +12,11 @@ const currency = (args[0]) ? args[0] : DEFAULT;
 
 const marketQuotes = async () => {
     try {
-        const response = await axios.get(`${process.env.SERVER}${PATH}?currency=${currency}`,);
+        const headers = { 
+            'Accept-Encoding': 'gzip, deflate, br, zstd' 
+        }
+
+        const response = await axios.get(`${process.env.SERVER}${PATH}?currency=${currency}`, { headers: headers });
         console.log(response.data);
     }
     catch(e) {

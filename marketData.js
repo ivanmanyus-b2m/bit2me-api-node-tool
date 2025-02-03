@@ -15,7 +15,11 @@ const currency = args[0];
 
 const marketQuotes = async () => {
     try {
-        const response = await axios.get(`${process.env.SERVER}${PATH}${currency}`,);
+        const headers = { 
+            'Accept-Encoding': 'gzip, deflate, br, zstd' 
+        }
+        
+        const response = await axios.get(`${process.env.SERVER}${PATH}${currency}`, { headers: headers });
         console.log(response.data);
     }
     catch(e) {

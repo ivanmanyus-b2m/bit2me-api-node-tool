@@ -12,9 +12,13 @@ const { SERVER, END_CURRENCIES, END_C_SETTINGS } = process.env;
 const listCurrencies = async () => {
 
     try {
+        const headers = { 
+            'Accept-Encoding': 'gzip, deflate, br, zstd' 
+        }
+
         const [data, datacur, datafee] = await Promise.all([
-            axios.get(`${SERVER}${END_CURRENCIES}`),
-            axios.get(`${SERVER}${END_C_SETTINGS}`),
+            axios.get(`${SERVER}${END_CURRENCIES}`, { headers: headers }),
+            axios.get(`${SERVER}${END_C_SETTINGS}`, { headers: headers }),
             getCurrencyWdInfo()
         ]);
 
