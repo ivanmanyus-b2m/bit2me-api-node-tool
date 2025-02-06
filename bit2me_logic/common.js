@@ -9,6 +9,9 @@ const getMessageSignature = (message, secret) => {
     return hmacDigest;
 };
 
+const commerceSignature = (payload, secret) => crypto.createHmac('sha256', secret).update(JSON.stringify(payload)).digest('hex');
+
 module.exports = {
-  getMessageSignature
+  getMessageSignature,
+  commerceSignature
 };
