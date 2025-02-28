@@ -12,7 +12,7 @@ const { getNetworks } = require('./utils/getNetworks');
 
 const args = process.argv.slice(2);
 if(args.length < 2){
-    console.error("Usage: npm run deposit <crypto> <network> [subaccount-id]")
+    console.error("Usage: npm run deposit-crypto <crypto> <network> [subaccount-id]")
     process.exit(1);
 }
 
@@ -21,9 +21,6 @@ const network = args[1];
 const SUBACCOUNT = args[2];
 
 const depositCrypto = async () => {
-    // Open wss listening successuly `crypto` deposit
-    await openWss(process.env.WS_CRY_SUC_DEPOSIT)
-
     const [pockets, networks] = await Promise.all([
         getPocket(crypto, SUBACCOUNT),
         getNetworks(crypto)
@@ -47,6 +44,10 @@ const depositCrypto = async () => {
         const response = await axios.get(`${process.env.SERVER}${path}`, getAuthHeaders(path, SUBACCOUNT));
         if(response.data && response.data.length == 1){
             console.log(`Now, you can make a secure ${crypto} deposit using the ${network} network to this address: ${response.data[0].address} .\nOnce the deposit has been received, the execution of this script will be cut off. In case your balance is not credited, please contact the Bit2Me team.`);
+            
+            // Open wss listening successuly `crypto` deposit
+            const successMessage = await openWss(process.env.WS_CRY_SUC_DEPOSIT);
+            console.log("Transaction successful:", successMessage);
         }
     }
     catch(e){

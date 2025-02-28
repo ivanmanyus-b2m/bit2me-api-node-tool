@@ -47,7 +47,7 @@ For subaccounts:
 - To **deposit EUR**, execute `npm run deposit-eur <amount> <credit-card-id> [subaccount-id]`. If `subaccount-id` is empty, `credit-card-id` MUST be from main account and EUR will still be deposited into the main account.
 
 ### Deposit crypto
-- To **deposit crypto**, execute `npm run deposit <crypto> <network> [subaccount-id]`. If `subaccount-id` is empty, will return main account addresses.
+- To **deposit crypto**, execute `npm run deposit-crypto <crypto> <network> [subaccount-id]`. If `subaccount-id` is empty, will return main account addresses.
 
 ### Get transaction information
 - To **get a transaction**, execute `npm run read-tx <tx-id> [subaccount-id]`. If `subaccount-id` is empty, `tx-id` will be searched in main account transaction list.

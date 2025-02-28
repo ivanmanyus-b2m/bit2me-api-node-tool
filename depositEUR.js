@@ -22,9 +22,6 @@ const SUBACCOUNT = args[2]
 const currency = "EUR";
 
 const depositEUR = async () => {
-    // Open wss listening successuly EUR deposit
-    await openWss(process.env.WS_EUR_DEPOSIT)
-
     const pockets = await getPocket(currency, SUBACCOUNT);
     
     if(pockets.length == 0){
@@ -73,6 +70,10 @@ const depositEUR = async () => {
 
             if(response.data) {
                 console.log(`Deposit pending. Go to ${response.data.provider.requestConfiguration.uri} and complete the process.` )
+                
+                // Open wss listening successuly EUR deposit
+                const successMessage = await openWss(process.env.WS_EUR_DEPOSIT)
+                console.log("Transaction successful:", successMessage);
             }
         }
     }catch(e) {

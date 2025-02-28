@@ -31,8 +31,6 @@ let   bob       = args[3]
 const totp      = args[4]
 
 const socialPay = async () => {
-    await openWss(process.env.WS_SOCIALPAY_SUCCESS);
-
     if(!validate(alice) || !validate(bob)) usage();
 
     alice = (await isSubaccount(alice)) ? alice : "";
@@ -75,9 +73,11 @@ const socialPay = async () => {
             config
         )
 
-        if (response.data) {
-            console.log(await getTx(response.data.walletMovementId, alice))
-        }
+        const successMessage = await openWss(process.env.WS_SOCIALPAY_SUCCESS);
+        console.log("Transaction successful:", successMessage);
+
+        const transactionInfo = await getTx(response.data.walletMovementId, alice);
+        console.log("Transaction details:", transactionInfo);
     }
     catch(e){
         console.error(e.response.data);
