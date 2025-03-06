@@ -17,6 +17,7 @@
     "list-pockets": "node --env-file .env listPockets.js",
     "balance": "node --env-file .env pocketsBalance.js",
     "kyc": "node --env-file .env embedKyc.js",
+    "embed": "node --env-file .env embed.js",
     "deposit-eur": "node --env-file .env depositEUR.js",
     "deposit-crypto": "node --env-file .env depositCrypto.js",
     "read-tx": "node --env-file .env getTransaction.js",

@@ -92,6 +92,9 @@ For subaccounts:
 
 ### Extra section
 
+#### Embed session
+You can generate a valid session using embed signin running `npm run embed [subaccount-id]`.
+
 #### Authentication by JWT
 The authentication between Bit2Me and you can also work with the [RFC-7519 standard](https://datatracker.ietf.org/doc/html/rfc7519), popularly known as **JSON Web Token (JWT)**. This means, that if you do not want the actions of your subaccounts to depend exclusively on a backend, you can have them authenticated with a JWT. The management of this token is up to you.
 
